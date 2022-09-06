@@ -7,14 +7,16 @@ This repository contains the implementation of SimplEx, a method to explain the 
 representations of black-box models with the help of a corpus of examples.
 For more details, please read our [NeurIPS 2021 paper](https://papers.nips.cc/paper/2021/hash/65658fde58ab3c2b6e5132a39fae7cb9-Abstract.html): 'Explaining Latent Representations with a Corpus of Examples'.
 
-## Installation
-1. Clone the repository
-2. Create a new virtual environment with Python 3.8
-3. Run the following command from the repository folder:
-    ```shell
-    pip install -r requirements.txt #install requirements
-    ```
-When the packages are installed, SimplEx can directly be used.
+## :rocket: Installation
+
+The library can be installed from PyPI using
+```bash
+$ pip install hyperimpute
+```
+or from source, using
+```bash
+$ pip install .
+```
 
 ## Toy example
 
@@ -201,6 +203,18 @@ python -m simplexai.experiments.results.ar.outlier.plot_results -cv_list CV1 CV2
 
 ```
 3. The resulting plots and data are saved [here](experiments/results/ar/outlier).
+
+
+## :hammer: Tests
+
+Install the testing dependencies using
+```bash
+pip install .[testing]
+```
+The tests can be executed using
+```bash
+pytest -vsx
+```
 
 ## Citing
 
