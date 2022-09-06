@@ -11,7 +11,7 @@ For more details, please read our [NeurIPS 2021 paper](https://papers.nips.cc/pa
 
 The library can be installed from PyPI using
 ```bash
-$ pip install hyperimpute
+$ pip install simplexai
 ```
 or from source, using
 ```bash
