@@ -8,13 +8,14 @@ import sklearn
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
-from explainers.nearest_neighbours import NearNeighLatent
-from explainers.representer import Representer
-from explainers.simplex import Simplex
-from models.tabular_data import MortalityPredictor
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, Dataset
-from utils.schedulers import ExponentialScheduler
+
+from simplexai.explainers.nearest_neighbours import NearNeighLatent
+from simplexai.explainers.representer import Representer
+from simplexai.explainers.simplex import Simplex
+from simplexai.models.tabular_data import MortalityPredictor
+from simplexai.utils.schedulers import ExponentialScheduler
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 

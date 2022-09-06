@@ -9,17 +9,22 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 from captum.attr._utils.visualization import visualize_image_attr
-from experiments.mnist import load_mnist
-from experiments.prostate_cancer import ProstateCancerDataset, load_cutract, load_seer
-from explainers.simplex import Simplex
-from models.image_recognition import MnistClassifier
-from models.tabular_data import MortalityPredictor
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
-from utils.schedulers import ExponentialScheduler
-from visualization.images import plot_mnist
-from visualization.tables import plot_prostate_patient
+
+from simplexai.experiments.mnist import load_mnist
+from simplexai.experiments.prostate_cancer import (
+    ProstateCancerDataset,
+    load_cutract,
+    load_seer,
+)
+from simplexai.explainers.simplex import Simplex
+from simplexai.models.image_recognition import MnistClassifier
+from simplexai.models.tabular_data import MortalityPredictor
+from simplexai.utils.schedulers import ExponentialScheduler
+from simplexai.visualization.images import plot_mnist
+from simplexai.visualization.tables import plot_prostate_patient
 
 
 def mnist_use_case(

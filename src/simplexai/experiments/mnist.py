@@ -16,12 +16,13 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 import torchvision
-from explainers.nearest_neighbours import NearNeighLatent
-from explainers.representer import Representer
-from explainers.simplex import Simplex
-from models.image_recognition import MnistClassifier
 from torch.utils.data import DataLoader, Dataset
-from utils.schedulers import ExponentialScheduler
+
+from simplexai.explainers.nearest_neighbours import NearNeighLatent
+from simplexai.explainers.representer import Representer
+from simplexai.explainers.simplex import Simplex
+from simplexai.models.image_recognition import MnistClassifier
+from simplexai.utils.schedulers import ExponentialScheduler
 
 
 # Load data

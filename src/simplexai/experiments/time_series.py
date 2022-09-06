@@ -5,13 +5,14 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from explainers.nearest_neighbours import NearNeighLatent
-from explainers.simplex import Simplex
-from models.time_series_forecasting import TimeSeriesForecaster
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
-from utils.schedulers import ExponentialScheduler
+
+from simplexai.explainers.nearest_neighbours import NearNeighLatent
+from simplexai.explainers.simplex import Simplex
+from simplexai.models.time_series_forecasting import TimeSeriesForecaster
+from simplexai.utils.schedulers import ExponentialScheduler
 
 
 class TimeSeriesDataset(torch.utils.data.Dataset):
