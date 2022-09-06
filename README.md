@@ -40,9 +40,9 @@ corpus_latents = model.latent_representation(corpus_inputs).detach()
 test_latents = model.latent_representation(test_inputs).detach()
 
 # Initialize SimplEX, fit it on test examples
-simplex = Simplex(corpus_examples=corpus_inputs, 
+simplex = Simplex(corpus_examples=corpus_inputs,
                   corpus_latent_reps=corpus_latents)
-simplex.fit(test_examples=test_inputs, 
+simplex.fit(test_examples=test_inputs,
             test_latent_reps=test_latents,
             reg_factor=0)
 
@@ -52,7 +52,7 @@ weights = simplex.weights
 We get a tensor weights that can be interpreted as follows:
 ``weights[i,c] = weight of corpus example c in the decomposition of example i``.
 
-We can get the importance of each corpus feature for the decomposition 
+We can get the importance of each corpus feature for the decomposition
 of a given example ``i`` in the following way:
 ```python
 import torch
@@ -70,14 +70,14 @@ Each element of the list is a tuple structured as follows:
 w_c, x_c, proj_jacobian_c = result[c]
 ```
 Where ``w_c`` corresponds to the weight ``weights[i,c]``, ``x_c`` corresponds to ``corpus_inputs[c]``
-and ``proj_jacobian`` is a tensor such that ``proj_jacobian_c[k]`` is the Projected Jacobian 
+and ``proj_jacobian`` is a tensor such that ``proj_jacobian_c[k]`` is the Projected Jacobian
 of feature ``k`` from corpus example ``c``.
 
 
-## Reproducing the paper results 
+## Reproducing the paper results
 ### Reproducing MNIST Approximation Quality Experiment
-1. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 9) 
+1. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 9)
 ```shell
 python -m experiments.mnist -experiment "approximation_quality" -cv CV
 
@@ -91,11 +91,11 @@ python -m experiments.results.mnist.quality.plot_results -cv_list CV1 CV2 CV3 ..
 3. The resulting plots and data are saved [here](experiments/results/mnist/quality).
 
 ### Reproducing Prostate Cancer Approximation Quality Experiment
-This experiment requires the access to the private datasets CUTRACT 
-and SEER decribed in the paper. 
+This experiment requires the access to the private datasets CUTRACT
+and SEER decribed in the paper.
 1. Copy the files ``cutract_internal_all.csv`` and ``seer_external_imputed_new.csv`` are in the folder ``data/Prostate Cancer``
-2. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 9) 
+2. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 9)
 ```shell
 python -m experiments.prostate_cancer -experiment "approximation_quality" -cv CV
 
@@ -108,11 +108,11 @@ python -m experiments.results.prostate.quality.plot_results -cv_list CV1 CV2 CV3
 4. The resulting plots are saved [here](experiments/results/prostate/quality).
 
 ### Reproducing Prostate Cancer Outlier Experiment
-This experiment requires the access to the private datasets CUTRACT 
+This experiment requires the access to the private datasets CUTRACT
 and SEER decribed in the paper.
 1. Make sure that the files ``cutract_internal_all.csv`` and ``seer_external_imputed_new.csv`` are in the folder ``data/Prostate Cancer``
-2. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 9) 
+2. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 9)
 ```shell
 python -m experiments.prostate_cancer -experiment "outlier_detection" -cv CV
 
@@ -125,17 +125,17 @@ python -m experiments.results.prostate.outlier.plot_results -cv_list CV1 CV2 CV3
 4. The resulting plots are saved [here](experiments/results/prostate/outlier).
 
 ### Reproducing MNIST Jacobian Projection Significance Experiment
-1. Run the following script 
+1. Run the following script
 ```shell
-python -m experiments.mnist -experiment "jacobian_corruption" 
+python -m experiments.mnist -experiment "jacobian_corruption"
 
 ```
 
 2.The resulting plots and data are saved [here](experiments/results/mnist/jacobian_corruption).
 
 ### Reproducing MNIST Outlier Detection Experiment
-1. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 9) 
+1. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 9)
 ```shell
 python -m experiments.mnist -experiment "outlier_detection" -cv CV
 
@@ -149,8 +149,8 @@ python -m experiments.results.mnist.outlier.plot_results -cv_list CV1 CV2 CV3 ..
 3. The resulting plots and data are saved [here](experiments/results/mnist/outlier).
 
 ### Reproducing MNIST Influence Function Experiment
-1. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 4) 
+1. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 4)
 ```shell
 python -m experiments.mnist -experiment "influence" -cv CV
 
@@ -163,7 +163,7 @@ python -m experiments.results.mnist.influence.plot_results -cv_list CV1 CV2 CV3 
 ```
 3. The resulting plots and data are saved [here](experiments/results/mnist/influence).
 
-Note: some problems can appear with the package 
+Note: some problems can appear with the package
 [Pytorch Influence Functions](https://github.com/nimarb/pytorch_influence_functions).
 If this is the case, please change ``calc_influence_function.py`` in the following way:
 
@@ -173,8 +173,8 @@ If this is the case, please change ``calc_influence_function.py`` in the followi
 ```
 
 ### Reproducing AR Approximation Quality Experiment
-1. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 4) 
+1. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 4)
 ```shell
 python -m experiments.time_series -experiment "approximation_quality" -cv CV
 
@@ -188,8 +188,8 @@ python -m experiments.results.ar.quality.plot_results -cv_list CV1 CV2 CV3 ...
 3. The resulting plots and data are saved [here](experiments/results/ar/quality).
 
 ### Reproducing AR Outlier Detection Experiment
-1. Run the following script for different values of CV (the results from the paper 
-   were obtained by taking all integer CV between 0 and 4) 
+1. Run the following script for different values of CV (the results from the paper
+   were obtained by taking all integer CV between 0 and 4)
 ```shell
 python -m experiments.time_series -experiment "outlier_detection" -cv CV
 
