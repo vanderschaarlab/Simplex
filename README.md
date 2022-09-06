@@ -22,9 +22,9 @@ Bellow, you can find a toy demonstration where we make a corpus decomposition of
 All the relevant code can be found in the file [simplex](explainers/simplex.py).
 
 ```python
-from explainers.simplex import Simplex
-from models.image_recognition import MnistClassifier
-from experiments.mnist import load_mnist
+from simplexai.explainers.simplex import Simplex
+from simplexai.models.image_recognition import MnistClassifier
+from simplexai.experiments.mnist import load_mnist
 
 # Get a model
 model = MnistClassifier() # Model should have the BlackBox interface
@@ -79,13 +79,13 @@ of feature ``k`` from corpus example ``c``.
 1. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 9)
 ```shell
-python -m experiments.mnist -experiment "approximation_quality" -cv CV
+python -m simplexai.experiments.mnist -experiment "approximation_quality" -cv CV
 
 ```
 
 2. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.mnist.quality.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.mnist.quality.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 3. The resulting plots and data are saved [here](experiments/results/mnist/quality).
@@ -97,12 +97,12 @@ and SEER decribed in the paper.
 2. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 9)
 ```shell
-python -m experiments.prostate_cancer -experiment "approximation_quality" -cv CV
+python -m simplexai.experiments.prostate_cancer -experiment "approximation_quality" -cv CV
 
 ```
 3. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.prostate.quality.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.prostate.quality.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 4. The resulting plots are saved [here](experiments/results/prostate/quality).
@@ -114,12 +114,12 @@ and SEER decribed in the paper.
 2. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 9)
 ```shell
-python -m experiments.prostate_cancer -experiment "outlier_detection" -cv CV
+python -m simplexai.experiments.prostate_cancer -experiment "outlier_detection" -cv CV
 
 ```
 3. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.prostate.outlier.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.prostate.outlier.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 4. The resulting plots are saved [here](experiments/results/prostate/outlier).
@@ -127,7 +127,7 @@ python -m experiments.results.prostate.outlier.plot_results -cv_list CV1 CV2 CV3
 ### Reproducing MNIST Jacobian Projection Significance Experiment
 1. Run the following script
 ```shell
-python -m experiments.mnist -experiment "jacobian_corruption"
+python -m simplexai.experiments.mnist -experiment "jacobian_corruption"
 
 ```
 
@@ -137,13 +137,13 @@ python -m experiments.mnist -experiment "jacobian_corruption"
 1. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 9)
 ```shell
-python -m experiments.mnist -experiment "outlier_detection" -cv CV
+python -m simplexai.experiments.mnist -experiment "outlier_detection" -cv CV
 
 ```
 
 2. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.mnist.outlier.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.mnist.outlier.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 3. The resulting plots and data are saved [here](experiments/results/mnist/outlier).
@@ -152,13 +152,13 @@ python -m experiments.results.mnist.outlier.plot_results -cv_list CV1 CV2 CV3 ..
 1. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 4)
 ```shell
-python -m experiments.mnist -experiment "influence" -cv CV
+python -m simplexai.experiments.mnist -experiment "influence" -cv CV
 
 ```
 
 2. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.mnist.influence.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.mnist.influence.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 3. The resulting plots and data are saved [here](experiments/results/mnist/influence).
@@ -176,13 +176,13 @@ If this is the case, please change ``calc_influence_function.py`` in the followi
 1. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 4)
 ```shell
-python -m experiments.time_series -experiment "approximation_quality" -cv CV
+python -m simplexai.experiments.time_series -experiment "approximation_quality" -cv CV
 
 ```
 
 2. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.ar.quality.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.ar.quality.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 3. The resulting plots and data are saved [here](experiments/results/ar/quality).
@@ -191,13 +191,13 @@ python -m experiments.results.ar.quality.plot_results -cv_list CV1 CV2 CV3 ...
 1. Run the following script for different values of CV (the results from the paper
    were obtained by taking all integer CV between 0 and 4)
 ```shell
-python -m experiments.time_series -experiment "outlier_detection" -cv CV
+python -m simplexai.experiments.time_series -experiment "outlier_detection" -cv CV
 
 ```
 
 2. Run the following script by adding all the values of CV from the previous step
 ```shell
-python -m experiments.results.ar.outlier.plot_results -cv_list CV1 CV2 CV3 ...
+python -m simplexai.experiments.results.ar.outlier.plot_results -cv_list CV1 CV2 CV3 ...
 
 ```
 3. The resulting plots and data are saved [here](experiments/results/ar/outlier).
