@@ -118,7 +118,6 @@ dmypy.json
 
 # Simplex
 experiments/results/*
-src/simplexai/experiments/results/*
 experiments/data/*
 src/simplexai/experiments/data/*
 src/simplexai/experiments/time_series_toy.py
